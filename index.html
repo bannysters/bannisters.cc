@@ -1,55 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>bannisters.cc</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- tsParticles -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" href="icon.png" type="image/png">
-  <style>
-    :root { --accent: #d3bfff; --bg: #000; }
-    body { margin:0; padding:0; background:#000; color:var(--accent); font-family:'Inter',sans-serif; display:flex; flex-direction:column; min-height:100vh; }
-    #tsparticles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
-    header { padding:2rem 1rem; flex:0; text-align:center; font-family:'Poppins',sans-serif; font-weight:300; }
-    main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:space-between; text-align:center; padding:1rem; }
-    h1 { font-size:2.5rem; margin-bottom:1rem; }
-    p { font-size:1rem; font-weight:300; max-width:500px; margin-bottom:1.5rem; }
-    .btn { font-weight:400; font-size:0.9rem; padding:0.6rem 1.2rem; border-radius:0.5rem; transition:transform .3s; }
-    .btn.primary { background:#4b0082; } .btn.primary:hover { transform:scale(1.05); }
-    .btn.secondary { border:1px solid #4b0082; } .btn.secondary:hover { background:#4b0082; transform:scale(1.05); }
-    footer { flex:0; padding:1rem; display:flex; justify-content:center; gap:1.5rem; }
-    .social { font-size:1.3rem; transition:color .3s,transform .3s; }
-    .social:hover { color:#6a0dad; transform:scale(1.2); }
-    .centered-section { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
-    .button-container { margin-top: 2rem; }
-  </style>
-</head>
-<body>
-  <div id="tsparticles"></div>
-  <header>
-    <h1>bannisters.cc</h1>
-  </header>
-  <main class="flex flex-col items-center justify-between h-screen">
-    <div class="flex space-x-4" style="margin-top: auto;">
-      <a href="https://discord.gg/hakitok" target = "_blank" aria-label="Discord" class="social"><i class="fab fa-discord"></i></a>
-      <a href="https://instagram.com/bannisterss" target = "_blank" aria-label="Instagram" class="social"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/n9vo" target = "_blank" aria-label="GitHub" class="social"><i class="fab fa-github"></i></a>
-    </div>
-  </main>
 
-  <script>
-    tsParticles.load("tsparticles", {
-      particles:{number:{value:40}, color:{value:"#4b0082"}, shape:{type:"circle"}, opacity:{value:0.4}, size:{value:{min:1,max:3}}, move:{enable:true,speed:0.7,outModes:{default:"bounce"}}, links:{enable:true,distance:90,color:"#330066",opacity:0.2,width:1}},
-      interactivity:{events:{onHover:{enable:true,mode:"grab"},onClick:{enable:true,mode:"repulse"}},modes:{grab:{distance:130,links:{opacity:0.4}},repulse:{distance:100}}}, detectRetina:true, background:{color:"#000000"}
-    });
-  </script>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bannisters.cc</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@200;300;400&display=swap"
+        rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="icon" href="icon.png" type="image/png" />
+
+    <!-- Flickity CSS & JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+
+    <style>
+        :root {
+            --accent: white;
+            --bg: #000;
+            --panel-bg: rgba(10, 10, 10, 0.98);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .gallery {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .gallery-cell {
+            background: url('banner.png') no-repeat center center; /* Set the background image */
+            background-size: cover; /* Ensure the image covers the cell */
+            border-radius: 1.5rem; /* Rounded corners */
+            width: 300px;
+            height: 200px;
+            margin-right: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.5rem;
+            color: var(--accent);
+            overflow: hidden; /* Ensures children respect border-radius */
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        .gallery-cell:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9); /* Enhanced shadow on hover */
+        }
+
+        .flickity-button {
+            background: rgba(10, 10, 10, 0.8);
+            color: var(--accent);
+            border: none;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .flickity-button:hover {
+            background: rgba(10, 10, 10, 1);
+        }
+
+        .flickity-button:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .flickity-button-icon {
+            fill: var(--accent);
+        }
+
+        footer {
+            padding: 1rem;
+            flex: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social {
+            font-size: 1.3rem;
+            transition: color .3s, transform .3s;
+        }
+
+        .social:hover {
+            color: #6a0dad;
+            transform: scale(1.2);
+        }
+
+        .flickity-prev-next-button.next {
+            right: -50px;
+        }
+        .flickity-prev-next-button.previous {
+            left: -50px;
+        }
+
+        .cell-content {
+            position: relative; /* Position it absolutely within the cell */
+            z-index: 2; /* On top of the blur layer */
+            padding: 1.5rem; /* Same as before */
+            color: white; /* Change text color for better contrast */
+            display: flex; /* Use Flexbox */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            text-align: center; /* Center text */
+            background: rgba(0, 0, 0, 0); /* Semi-transparent background */
+            border-radius: 1rem; /* Match the panel's border radius */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease; /* Smooth transition for opacity */
+        }
+
+        .gallery-cell:hover .cell-content {
+            opacity: 1; /* Show content on hover */
+        }
+
+        .gallery-cell::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.1);
+            backdrop-filter: blur(0px);
+            z-index: 1;
+            transition: backdrop-filter 0.3s;
+        }
+
+        .gallery-cell:hover::before {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.1);
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 1); /* Black background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            opacity: 1;
+            transition: opacity 1s ease; /* Fade effect */
+            z-index: 1000; /* Ensure it covers everything */
+        }
+
+        .overlay-content {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay">
+        <div class="overlay-content" id = "overlay-text">Press anything to enter</div>
+    </div>
+
+    <div id="tsparticles"></div>
+    <header>
+        <h1>bannisters.cc</h1>
+    </header>
+    <main>
+        <div class="gallery js-flickity" data-flickity='{ 
+           "wrapAround": true, 
+           "autoPlay": 3000, 
+           "pauseAutoPlayOnHover": true,
+           "pageDots": false,
+           "prevNextButtons": true,
+           "draggable": true 
+         }'>
+
+            <div class="gallery-cell" style="background-image: url('9auth-icon.png');">
+                <a href="https://9auth.xyz" target="_blank" class="cell-content">
+                    <h2 class="text-xl font-bold mb-2">9AUTH (roblox script protection service)</h2>
+                    <p class="text-sm font-light">Click to open site</p>
+                </a>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <a href="https://instagram.com/bannisterss" target="_blank" class="social">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/n9vo" target="_blank" class="social">
+            <i class="fab fa-github"></i>
+        </a>
+    </footer>
+
+    <script>
+        // tsParticles init
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 40 },
+                color: { value: "#4b0082" },
+                shape: { type: "circle" },
+                opacity: { value: 0.4 },
+                size: { value: { min: 1, max: 3 } },
+                move: { enable: true, speed: 0.7, outModes: { default: "bounce" } },
+                links: {
+                    enable: true,
+                    distance: 90,
+                    color: "#330066",
+                    opacity: 0.2,
+                    width: 1
+                }
+            },
+            interactivity: {
+                events: {
+                    onHover: { enable: true, mode: "grab" },
+                    onClick: { enable: true, mode: "repulse" }
+                },
+                modes: {
+                    grab: { distance: 130, links: { opacity: 0.4 } },
+                    repulse: { distance: 100 }
+                }
+            },
+            detectRetina: true,
+            background: { color: "#000000" }
+        });
+
+        // Remove overlay on any key press or click
+        document.addEventListener('keydown', removeOverlay);
+        document.addEventListener('click', removeOverlay);
+
+        function removeOverlay() {
+            typewriterEffect("overlay-text", "Hi", () => {
+                fadeOutOverlay();
+            });
+        }
+
+        function typewriterEffect(elementId, text, callback) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = ""; // Clear the element
+            let index = 0;
+
+            const type = () => {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100); // Adjust typing speed here
+                } else {
+                    setTimeout(callback, 500); // Wait half a second after typing
+                }
+            };
+            type();
+        }
+
+        function fadeOutOverlay() {
+            document.getElementById("overlay-text").remove();
+            setTimeout(() => {
+                const overlay = document.getElementById('overlay');
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none'; // Remove from view
+                    // Remove event listeners after the overlay is removed
+                    document.removeEventListener('keydown', removeOverlay);
+                    document.removeEventListener('click', removeOverlay);
+                }, 1000); // Match this with the CSS transition duration
+            }, 500)
+            
+        }
+    </script>
 </body>
+
 </html>
