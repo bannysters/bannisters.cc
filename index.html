@@ -21,7 +21,7 @@
     <!-- Flickity CSS & JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
-
+    <script src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"></script>
     <style>
         :root {
             --accent: white;
@@ -38,6 +38,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            user-select: none; /* Prevent text selection */
         }
 
         #tsparticles {
@@ -50,10 +51,17 @@
         }
 
         header {
-            padding: 2rem 1rem;
+            padding: 3rem 1rem; /* Increased padding for a bigger header */
             text-align: center;
             font-family: 'Poppins', sans-serif;
-            font-weight: 300;
+            font-weight: 500;
+
+        }
+        
+
+        header h1 {
+            color: white; /* Deep purple color */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6); /* Glowing effect */
         }
 
         main {
@@ -241,11 +249,20 @@
     </footer>
 
     <script>
+        options = {
+        "outerStyle": "disable",
+        "hoverEffect": "pointer-overlay",
+        "hoverItemMove": false,
+        "defaultCursor": false,
+        "outerWidth": 30,
+        "outerHeight": 30
+        }
+        magicMouse(options);
         // tsParticles init
         tsParticles.load("tsparticles", {
             particles: {
                 number: { value: 40 },
-                color: { value: "#4b0082" },
+                color: { value: "#FFFFFF" },
                 shape: { type: "circle" },
                 opacity: { value: 0.4 },
                 size: { value: { min: 1, max: 3 } },
