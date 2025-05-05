@@ -3,30 +3,34 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bannisters.cc</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- tsParticles -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@200;300;400&display=swap"
-        rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="icon" href="icon.png" type="image/png" />
+    <meta name="description" content="Bannister's personal website" />
+    <meta name="author" content="Bannister" />
+    <meta property="og:title" content="bannisters.cc" />
+    <meta property="og:description" content="Bannister's personal website" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <!-- Flickity CSS & JS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
-    <script src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"></script>
+
     <style>
         :root {
             --accent: white;
             --bg: #000;
             --panel-bg: rgba(10, 10, 10, 0.98);
+            --glow-color: rgba(155, 135, 245, 0.8);
+            --key-purple: #9b87f5;
         }
 
         body {
@@ -38,7 +42,8 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            user-select: none; /* Prevent text selection */
+            user-select: none;
+            overflow-x: hidden;
         }
 
         #tsparticles {
@@ -51,17 +56,30 @@
         }
 
         header {
-            padding: 3rem 1rem; /* Increased padding for a bigger header */
+            padding: 4rem 2rem;
             text-align: center;
             font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-
+            font-weight: 600;
         }
-        
 
         header h1 {
-            color: white; /* Deep purple color */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6); /* Glowing effect */
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+            animation: pulse-glow 3s ease-in-out infinite;
+            letter-spacing: 3px;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+            }
+
+            50% {
+                text-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color);
+            }
         }
 
         main {
@@ -69,37 +87,129 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
+            padding: 2rem;
             overflow: hidden;
         }
 
         .gallery {
             width: 100%;
-            max-width: 800px;
+            max-width: 1000px;
+            padding-bottom: 2rem;
         }
 
+        /* Gallery cell */
         .gallery-cell {
-            background: url('banner.png') no-repeat center center; /* Set the background image */
-            background-size: cover; /* Ensure the image covers the cell */
-            border-radius: 1.5rem; /* Rounded corners */
+            border-radius: 1.5rem;
             width: 300px;
-            height: 200px;
-            margin-right: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            height: 300px;
+            /* ↑ was 200px */
+            margin-right: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 1.5rem;
             color: var(--accent);
-            overflow: hidden; /* Ensures children respect border-radius */
+            overflow: hidden;
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+            transition: transform 0.3s ease;
+            background: transparent;
+            outline: 1px solid rgba(255, 255, 255, 0.3);
+            /* subtle white outline */
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+            /* faint glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
         }
 
+
+        /* Hover effect on gallery cell */
         .gallery-cell:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9); /* Enhanced shadow on hover */
+            transform: scale(1.05);
+            outline-color: rgba(255, 255, 255, 0.6);
+            /* brighten on hover */
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+            /* stronger glow on hover */
+            /* No glow on the container */
         }
+
+        /* Content inside the gallery cell */
+        .cell-content {
+            position: relative;
+            z-index: 2;
+            padding: 1.5rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* stack from the top down */
+            align-items: center;
+            text-align: center;
+            background: rgba(0, 0, 0, 0);
+            border-radius: 1rem;
+            opacity: 1;
+            transition: opacity 0.3s ease, background 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+            width: calc(100% - 3rem);
+            height: calc(100% - 3rem);
+        }
+
+        .cell-content .key-icon {
+            margin: 0 0 0.5rem;
+            /* small gap below icon */
+        }
+
+        .cell-content h2 {
+            margin: 0 0 0.5rem;
+            /* no top margin, small bottom gap */
+        }
+
+        .cell-content p {
+            margin-top: auto;
+            /* takes up all available space above */
+            margin-bottom: 0;
+            /* flush to bottom */
+        }
+
+
+        /* Hover effect on content inside gallery cell */
+        .gallery-cell:hover .cell-content {
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: none;
+            /* No glow on the content container */
+        }
+
+        /* Key icon */
+        .key-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            filter: none;
+            /* No glow on the icon initially */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Hover effect on key icon */
+        .gallery-cell:hover .key-icon {
+            transform: scale(1.1) rotate(10deg);
+            filter: drop-shadow(0 0 8px var(--glow-color)) drop-shadow(0 0 15px var(--glow-color));
+            /* Glowing effect */
+        }
+
+        /* Text inside the gallery cell */
+        .gallery-cell h2,
+        .gallery-cell p {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        /* Hover effect on text */
+        .gallery-cell:hover h2,
+        .gallery-cell:hover p {
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+            /* Glowing text effect */
+            color: var(--key-purple);
+            /* Optional: change text color on hover */
+        }
+
 
         .flickity-button {
             background: rgba(10, 10, 10, 0.8);
@@ -110,23 +220,16 @@
             border-radius: 50%;
             top: 50%;
             transform: translateY(-50%);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .flickity-button:hover {
             background: rgba(10, 10, 10, 1);
-        }
-
-        .flickity-button:disabled {
-            opacity: 0.3;
-            cursor: default;
-        }
-
-        .flickity-button-icon {
-            fill: var(--accent);
+            box-shadow: 0 0 10px var(--glow-color);
         }
 
         footer {
-            padding: 1rem;
+            padding: 1.5rem;
             flex: 0;
             display: flex;
             justify-content: center;
@@ -134,109 +237,194 @@
         }
 
         .social {
-            font-size: 1.3rem;
-            transition: color .3s, transform .3s;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            color: var(--accent);
+            text-decoration: none;
         }
 
         .social:hover {
-            color: #6a0dad;
+            color: var(--key-purple);
             transform: scale(1.2);
+            filter: drop-shadow(0 0 8px var(--glow-color));
         }
 
-        .flickity-prev-next-button.next {
-            right: -50px;
-        }
-        .flickity-prev-next-button.previous {
-            left: -50px;
-        }
-
-        .cell-content {
-            position: relative; /* Position it absolutely within the cell */
-            z-index: 2; /* On top of the blur layer */
-            padding: 1.5rem; /* Same as before */
-            color: white; /* Change text color for better contrast */
-            display: flex; /* Use Flexbox */
-            flex-direction: column; /* Stack items vertically */
-            justify-content: center; /* Center vertically */
-            align-items: center; /* Center horizontally */
-            text-align: center; /* Center text */
-            background: rgba(0, 0, 0, 0); /* Semi-transparent background */
-            border-radius: 1rem; /* Match the panel's border radius */
-            opacity: 0; /* Initially hidden */
-            transition: opacity 0.3s ease; /* Smooth transition for opacity */
-        }
-
-        .gallery-cell:hover .cell-content {
-            opacity: 1; /* Show content on hover */
-        }
-
-        .gallery-cell::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(10, 10, 10, 0.1);
-            backdrop-filter: blur(0px);
-            z-index: 1;
-            transition: backdrop-filter 0.3s;
-        }
-
-        .gallery-cell:hover::before {
-            backdrop-filter: blur(10px);
-            background: rgba(10, 10, 10, 0.1);
-        }
-
+        /* Overlay */
         #overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 1); /* Black background */
+            background: rgba(0, 0, 0, 1);
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             opacity: 1;
-            transition: opacity 1s ease; /* Fade effect */
-            z-index: 1000; /* Ensure it covers everything */
+            transition: opacity 1s ease;
+            z-index: 1000;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
         }
 
         .overlay-content {
             text-align: center;
+            position: relative;
+        }
+
+        .typing-text {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+            font-size: 2.5rem;
+        }
+
+        .typing-text::after {
+            content: "|";
+            position: absolute;
+            right: -5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-cell {
+                width: 250px;
+                height: 200px;
+                /* ↑ was 180px */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-cell {
+                width: 220px;
+                height: 170px;
+            }
+
+            .typing-text {
+                font-size: 1.8rem;
+            }
+        }
+
+        .flickity-prev-next-button.next {
+            right: -50px;
+        }
+
+        .flickity-prev-next-button.previous {
+            left: -50px;
+        }
+
+        .projects-header {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px var(--glow-color);
         }
     </style>
 </head>
 
 <body>
     <div id="overlay">
-        <div class="overlay-content" id = "overlay-text">Press anything to enter</div>
+        <div class="overlay-content">
+            <div class="typing-text" id="typing-text"></div>
+        </div>
     </div>
 
     <div id="tsparticles"></div>
     <header>
         <h1>bannisters.cc</h1>
     </header>
+    <h2 class="projects-header">My Projects</h2>
     <main>
+        
         <div class="gallery js-flickity" data-flickity='{ 
            "wrapAround": true, 
-           "autoPlay": 3000, 
-           "pauseAutoPlayOnHover": true,
-           "pageDots": false,
+           "pageDots": true, 
            "prevNextButtons": true,
            "draggable": true 
          }'>
-
-            <div class="gallery-cell" style="background-image: url('9auth-icon.png');">
-                <a href="https://9auth.xyz" target="_blank" class="cell-content">
-                    <h2 class="text-xl font-bold mb-2">9AUTH (roblox script protection service)</h2>
-                    <p class="text-sm font-light">Click to open site</p>
+            <div class="gallery-cell">
+                <a href="https://9auth.xyz" target="_blank" class="cell-content" id="auth-link">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/key.png" alt="Key icon" class="key-icon" />
+                    <h2 class="text-xl font-bold mb-2">9AUTH</h2>
+                    <p class="text-sm font-light">Advanced roblox script protection and key auth system featuring
+                        server-side checks and secure execution. Compatible with both internal and external executors.
+                        Automatically integrates encryption, obfuscation, anti-hooking, anti-tamper, and more.
+                    </p>
                 </a>
             </div>
-
+            <div class="gallery-cell">
+                <a href="https://github.com/n9vo/external_ha_server" target="_blank" class="cell-content">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub icon"
+                        class="key-icon" />
+                    <h2 class="text-xl font-bold mb-2">External Home Assistant Server</h2>
+                    <p class="text-sm font-light">A minimal Flask gateway that securely proxies selected Home Assistant
+                        endpoints on your own domain for real time control without exposing the full UI.
+                    </p>
+                </a>
+            </div>
+            <div class="gallery-cell">
+                <a href="https://github.com/n9vo/Wordle-Assistant" target="_blank" class="cell-content">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub icon"
+                        class="key-icon" />
+                    <h2 class="text-xl font-bold mb-2">Wordle Assistant</h2>
+                    <p class="text-sm font-light">
+                        Native JS logic to get the most likely answers for a wordle game. This JavaScript algorithm
+                        helps you solve Wordle games by listing all candidate words matching the current game state.
+                    </p>
+                </a>
+            </div>
+            <div class="gallery-cell">
+                <a href="https://github.com/n9vo/Survey-Engineer" target="_blank" class="cell-content">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub icon"
+                        class="key-icon" />
+                    <h2 class="text-xl font-bold mb-2">Survey Engineer</h2>
+                    <p class="text-sm font-light">
+                        SurveyEngineer is a proof-of-concept open-source tool designed to create and edit surveys using
+                        AI-driven prompts. It simplifies the process of survey generation by converting natural language
+                        input from the user into structured JSON data.
+                    </p>
+                </a>
+            </div>
+            <div class="gallery-cell">
+                <a href="https://github.com/n9vo/Synthorium/blob/main/mapgen_algo.lua" target="_blank"
+                    class="cell-content">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub icon"
+                        class="key-icon" />
+                    <h2 class="text-xl font-bold mb-2">Lua Map Generation Algorithm</h2>
+                    <p class="text-sm font-light">
+                        A complex & from-scratch lua algorithm capable of efficiently generating brand new roblox maps.
+                        Uses techniques including pathfinding, branching, room enumeration + vectorization, etc.
+                    </p>
+                </a>
+            </div>
         </div>
     </main>
     <footer>
@@ -246,33 +434,55 @@
         <a href="https://github.com/n9vo" target="_blank" class="social">
             <i class="fab fa-github"></i>
         </a>
+        <a href="https://discord.gg/hakitok" target="_blank" class="social">
+            <i class="fab fa-discord"></i>
+        </a>
     </footer>
 
     <script>
-        options = {
-        "outerStyle": "disable",
-        "hoverEffect": "pointer-overlay",
-        "hoverItemMove": false,
-        "defaultCursor": false,
-        "outerWidth": 30,
-        "outerHeight": 30
-        }
-        magicMouse(options);
-        // tsParticles init
+        window.onload = () => {
+            startAnimation();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof magicMouse === 'function') {
+                magicMouse({
+                    "outerStyle": "disable",
+                    "hoverEffect": "pointer-overlay",
+                    "hoverItemMove": false,
+                    "defaultCursor": false,
+                    "outerWidth": 30,
+                    "outerHeight": 30
+                });
+            }
+        });
+
         tsParticles.load("tsparticles", {
             particles: {
-                number: { value: 40 },
+                number: { value: 60 },
                 color: { value: "#FFFFFF" },
                 shape: { type: "circle" },
-                opacity: { value: 0.4 },
+                opacity: { value: 0.5 },
                 size: { value: { min: 1, max: 3 } },
-                move: { enable: true, speed: 0.7, outModes: { default: "bounce" } },
+                move: {
+                    enable: true,
+                    speed: 0.8,
+                    direction: "none",
+                    outModes: { default: "bounce" },
+                    random: true,
+                    straight: false
+                },
                 links: {
                     enable: true,
-                    distance: 90,
-                    color: "#330066",
-                    opacity: 0.2,
-                    width: 1
+                    distance: 150,
+                    color: "#9b87f5",
+                    opacity: 0.3,
+                    width: 1.2,
+                    triangles: {
+                        enable: true,
+                        color: "#9b87f5",
+                        opacity: 0.1
+                    }
                 }
             },
             interactivity: {
@@ -281,56 +491,64 @@
                     onClick: { enable: true, mode: "repulse" }
                 },
                 modes: {
-                    grab: { distance: 130, links: { opacity: 0.4 } },
-                    repulse: { distance: 100 }
+                    grab: {
+                        distance: 180,
+                        links: { opacity: 0.6 }
+                    },
+                    repulse: {
+                        distance: 150,
+                        duration: 0.4
+                    }
                 }
             },
             detectRetina: true,
             background: { color: "#000000" }
         });
 
-        // Remove overlay on any key press or click
-        document.addEventListener('keydown', removeOverlay);
-        document.addEventListener('click', removeOverlay);
+        let animationStarted = false;
 
-        function removeOverlay() {
-            typewriterEffect("overlay-text", "Hi", () => {
-                fadeOutOverlay();
-            });
+        function startAnimation() {
+            if (!animationStarted) {
+                animationStarted = true;
+
+                const typingElement = document.getElementById('typing-text');
+                const text = "bannisters.cc";
+
+                typewriterEffect(typingElement, text, () => {
+                    setTimeout(() => {
+                        fadeOutOverlay();
+                    }, 1000);
+                });
+            }
         }
 
-        function typewriterEffect(elementId, text, callback) {
-            const element = document.getElementById(elementId);
-            element.innerHTML = ""; // Clear the element
+        function typewriterEffect(element, text, callback) {
             let index = 0;
 
             const type = () => {
                 if (index < text.length) {
-                    element.innerHTML += text.charAt(index);
+                    element.textContent += text.charAt(index);
                     index++;
-                    setTimeout(type, 100); // Adjust typing speed here
+                    setTimeout(type, 100);
                 } else {
-                    setTimeout(callback, 500); // Wait half a second after typing
+                    if (callback) setTimeout(callback, 500);
                 }
             };
+
             type();
         }
 
         function fadeOutOverlay() {
-            document.getElementById("overlay-text").remove();
+            const overlay = document.getElementById('overlay');
+            overlay.style.opacity = '0';
+
             setTimeout(() => {
-                const overlay = document.getElementById('overlay');
-                overlay.style.opacity = '0';
-                setTimeout(() => {
-                    overlay.style.display = 'none'; // Remove from view
-                    // Remove event listeners after the overlay is removed
-                    document.removeEventListener('keydown', removeOverlay);
-                    document.removeEventListener('click', removeOverlay);
-                }, 1000); // Match this with the CSS transition duration
-            }, 500)
-            
+                overlay.style.display = 'none';
+            }, 1000);
         }
     </script>
+
+
 </body>
 
 </html>
