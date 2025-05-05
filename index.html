@@ -88,22 +88,26 @@
             justify-content: center;
             align-items: center;
             padding: 2rem;
-            overflow: hidden;
+            overflow: visible;
         }
 
-        .gallery {
-            width: 100%;
-            max-width: 1000px;
-            padding-bottom: 2rem;
-        }
+			  .gallery {
+				  width: 90vw;
+					height: auto;
+				  max-width: 1000px;
+				  padding-bottom: 2rem;
+				  
+				}	
+			
 
         /* Gallery cell */
         .gallery-cell {
             border-radius: 1.5rem;
-            width: 300px;
-            height: 300px;
-            /* ↑ was 200px */
-            margin-right: 1.5rem;
+            width: 80%;
+						max-width: 300px;
+						aspect-ratio: 1;
+            height: auto;
+            margin-right: 1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -150,7 +154,7 @@
             text-decoration: none;
             backdrop-filter: blur(5px);
             width: calc(100% - 3rem);
-            height: calc(100% - 3rem);
+            height: 100%;
         }
 
         .cell-content .key-icon {
@@ -234,6 +238,8 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
+						margin-bottom: auto;
+						margin-top: -50px;
         }
 
         .social {
@@ -309,8 +315,9 @@
             }
 
             .gallery-cell {
-                width: 250px;
-                height: 200px;
+                width: 95%;
+								max-width: none;
+                height: 100%;
                 /* ↑ was 180px */
             }
         }
@@ -360,16 +367,30 @@
     <div id="tsparticles"></div>
     <header>
         <h1>bannisters.cc</h1>
+				<footer>
+        <a href="https://instagram.com/bannisterss" target="_blank" class="social">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/n9vo" target="_blank" class="social">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://discord.gg/hakitok" target="_blank" class="social">
+            <i class="fab fa-discord"></i>
+        </a>
+    </footer>
     </header>
-    <h2 class="projects-header">My Projects</h2>
+		 
     <main>
         
-        <div class="gallery js-flickity" data-flickity='{ 
-           "wrapAround": true, 
-           "pageDots": true, 
-           "prevNextButtons": true,
-           "draggable": true 
-         }'>
+        <div class="gallery js-flickity"
+	       data-flickity='{
+	         "wrapAround": true,
+	         "pageDots": true,
+	         "prevNextButtons": true,
+	         "draggable": true,
+	         "percentPosition": true,
+	         "contain": true
+	       }'>
             <div class="gallery-cell">
                 <a href="https://9auth.xyz" target="_blank" class="cell-content" id="auth-link">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/key.png" alt="Key icon" class="key-icon" />
@@ -423,17 +444,6 @@
             </div>
         </div>
     </main>
-    <footer>
-        <a href="https://instagram.com/bannisterss" target="_blank" class="social">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://github.com/n9vo" target="_blank" class="social">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://discord.gg/hakitok" target="_blank" class="social">
-            <i class="fab fa-discord"></i>
-        </a>
-    </footer>
 
     <script>
         window.onload = () => {
@@ -448,7 +458,9 @@
                     "hoverItemMove": false,
                     "defaultCursor": false,
                     "outerWidth": 30,
-                    "outerHeight": 30
+                    "outerHeight": 30,
+										"contain": true,
+  									"cellAlign": "center"
                 });
             }
         });
