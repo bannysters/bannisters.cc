@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bannisters.cc</title>
     <meta name="description" content="Bannisters' personal website" />
-	<meta name="author" content="Bannisters" />
-	
-	<meta property="og:title" content="bannisters.cc" />
-	<meta property="og:description" content="Bannisters' personal website" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://bannisters.cc/" />
-	<meta property="og:image" content="https://raw.githubusercontent.com/n9vo/bannisters.cc/refs/heads/main/preview.png" />
-	<meta property="og:image:type" content="image/png" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	
-	<!-- Twitter Card Meta Tags (optional but helps with Twitter/Discord) -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="bannisters.cc" />
-	<meta name="twitter:description" content="Bannisters' personal website" />
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/n9vo/bannisters.cc/refs/heads/main/preview.png" />
+    <meta name="author" content="Bannisters" />
+
+    <meta property="og:title" content="bannisters.cc" />
+    <meta property="og:description" content="Bannisters' personal website" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bannisters.cc/" />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/n9vo/bannisters.cc/refs/heads/main/preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags (optional but helps with Twitter/Discord) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="bannisters.cc" />
+    <meta name="twitter:description" content="Bannisters' personal website" />
+    <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/n9vo/bannisters.cc/refs/heads/main/preview.png" />
 
 
 
@@ -101,21 +103,21 @@
             overflow: visible;
         }
 
-			  .gallery {
-				  width: 90vw;
-					height: auto;
-				  max-width: 1000px;
-				  padding-bottom: 2rem;
-				  
-				}	
-			
+        .gallery {
+            width: 90vw;
+            height: auto;
+            max-width: 1000px;
+            padding-bottom: 2rem;
+
+        }
+
 
         /* Gallery cell */
         .gallery-cell {
             border-radius: 1.5rem;
             width: 80%;
-						max-width: 300px;
-						aspect-ratio: 1;
+            max-width: 300px;
+            aspect-ratio: 1;
             height: auto;
             margin-right: 1rem;
             display: flex;
@@ -248,8 +250,8 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-						margin-bottom: auto;
-						margin-top: -50px;
+            margin-bottom: auto;
+            margin-top: -50px;
         }
 
         .social {
@@ -326,7 +328,7 @@
 
             .gallery-cell {
                 width: 95%;
-								max-width: none;
+                max-width: none;
                 height: 100%;
                 /* ↑ was 180px */
             }
@@ -345,9 +347,10 @@
             .typing-text {
                 font-size: 1.8rem;
             }
-						.cell-content p {
-					    display: none;
-					  }
+
+            .cell-content p {
+                display: none;
+            }
         }
 
         .flickity-prev-next-button.next {
@@ -367,37 +370,456 @@
             font-size: 1.5rem;
             text-shadow: 0 0 10px var(--glow-color);
         }
+
+        /* ==== Presence Card Overrides ==== */
+        .presence-card {
+            background: rgba(255, 255, 255, 0.1);
+            /* Updated for a modern look */
+            margin: 2rem auto 0;
+            padding: 1.5rem;
+            /* Increased padding for a more spacious feel */
+            border-radius: 12px;
+            /* More pronounced border radius */
+            max-width: 480px;
+            /* Made the card wider */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            /* Enhanced shadow for depth */
+            backdrop-filter: blur(12px);
+            /* Increased blur for a modern aesthetic */
+            border: none;
+            /* Removed border for a cleaner look */
+        }
+
+        /* Header inside presence */
+        .presence-card .header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            /* Increased gap for better spacing */
+            padding-bottom: 1rem;
+            /* Increased padding for a more spacious header */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            /* Lighter border for modern style */
+        }
+
+        .presence-card .avatar {
+            width: 100px;
+            /* Increased avatar size */
+            height: 100px;
+            /* Increased avatar size */
+            border-radius: 50%;
+            border: 3px solid var(--key-purple);
+            /* Thicker border for emphasis */
+        }
+
+        /* Username & status */
+        .presence-card .user-info h2 {
+            font-size: 1.3rem;
+            /* Increased font size for better readability */
+            color: var(--accent);
+            margin: 0;
+            text-shadow: 0 0 8px var(--glow-color);
+            /* Enhanced text shadow */
+        }
+
+        .presence-card .user-info .status {
+            font-size: 0.9rem;
+            /* Increased font size for better readability */
+            color: var(--subtext);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            /* Increased letter spacing for a modern touch */
+        }
+
+        /* Activities list tweaks */
+        .presence-card .activity-list {
+            list-style: none;
+            margin: 1rem 0 0;
+            /* Increased margin for better spacing */
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            /* Increased gap for better spacing */
+        }
+
+        .presence-card .activity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            /* Increased gap for better spacing */
+            padding: 0.75rem;
+            /* Increased padding for a more spacious feel */
+            background: rgba(255, 255, 255, 0.05);
+            /* Slightly more opaque background */
+            border-radius: 8px;
+            /* Adjusted border radius */
+        }
+
+        .presence-card .activity img {
+            width: 100px;
+            /* Increased image size for better visibility */
+            height: 100px;
+            /* Increased image size for better visibility */
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Activity text */
+        .presence-card .details h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            /* Increased font size for better readability */
+            color: var(--accent);
+        }
+
+        .presence-card .details p {
+            margin: 0;
+            font-size: 0.85rem;
+            /* Increased font size for better readability */
+            color: var(--subtext);
+            line-height: 1.4;
+            /* Increased line height for better readability */
+        }
+
+        /* Buttons in activities */
+        .presence-card .buttons {
+            margin-top: 0.75rem;
+            /* Increased margin for better spacing */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            /* Increased gap for better spacing */
+        }
+
+        .presence-card .buttons a {
+            font-size: 0.8rem;
+            /* Increased font size for better readability */
+            padding: 6px 12px;
+            /* Increased padding for a more modern button size */
+            background: var(--key-purple);
+            border-radius: 6px;
+            /* Adjusted border radius */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .presence-card .buttons a:hover {
+            transform: translateY(-2px);
+            /* Increased hover effect */
+            box-shadow: 0 0 12px var(--glow-color);
+            /* Enhanced hover shadow */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .presence-card {
+                width: 90%;
+                margin-top: 1.5rem;
+            }
+
+            .presence-card .header {
+                gap: 0.5rem;
+            }
+
+            .presence-card .avatar {
+                width: 56px;
+                /* Adjusted for smaller screens */
+                height: 56px;
+                /* Adjusted for smaller screens */
+            }
+
+            .presence-card .activity img {
+                width: 40px;
+                /* Adjusted for smaller screens */
+                height: 40px;
+                /* Adjusted for smaller screens */
+            }
+        }
+
+        /* ==== About Card Overrides ==== */
+        .about-card {
+            background: rgba(255, 255, 255, 0.1);
+            /* Updated for a modern look */
+            margin: 2rem auto 0;
+            padding: 1.5rem;
+            /* Increased padding for a more spacious feel */
+            border-radius: 12px;
+            /* More pronounced border radius */
+            max-width: 480px;
+            /* Made the card wider */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            /* Enhanced shadow for depth */
+            backdrop-filter: blur(12px);
+            /* Increased blur for a modern aesthetic */
+            border: none;
+            /* Removed border for a cleaner look */
+        }
+
+        /* Header inside about */
+        .about-card .header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            /* Increased gap for better spacing */
+            padding-bottom: 1rem;
+            /* Increased padding for a more spacious header */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            /* Lighter border for modern style */
+        }
+
+        .about-card .avatar {
+            width: 100px;
+            /* Increased avatar size */
+            height: 100px;
+            /* Increased avatar size */
+            border-radius: 50%;
+            border: 3px solid var(--key-purple);
+            /* Thicker border for emphasis */
+        }
+
+        /* Username & status */
+        .about-card .user-info h2 {
+            font-size: 1.3rem;
+            /* Increased font size for better readability */
+            color: var(--accent);
+            margin: 0;
+            text-shadow: 0 0 8px var(--glow-color);
+            /* Enhanced text shadow */
+        }
+
+        .about-card .user-info .status {
+            font-size: 0.9rem;
+            /* Increased font size for better readability */
+            color: var(--subtext);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            /* Increased letter spacing for a modern touch */
+        }
+
+        /* Activities list tweaks */
+        .about-card .activity-list {
+            list-style: none;
+            margin: 1rem 0 0;
+            /* Increased margin for better spacing */
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            /* Increased gap for better spacing */
+        }
+
+        .about-card .activity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            /* Increased gap for better spacing */
+            padding: 0.75rem;
+            /* Increased padding for a more spacious feel */
+            background: rgba(255, 255, 255, 0.05);
+            /* Slightly more opaque background */
+            border-radius: 8px;
+            /* Adjusted border radius */
+        }
+
+        .about-card .activity img {
+            width: 100px;
+            /* Increased image size for better visibility */
+            height: 100px;
+            /* Increased image size for better visibility */
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Activity text */
+        .about-card .details h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            /* Increased font size for better readability */
+            color: var(--accent);
+        }
+
+        .about-card .details p {
+            margin: 0;
+            font-size: 0.85rem;
+            /* Increased font size for better readability */
+            color: var(--subtext);
+            line-height: 1.4;
+            /* Increased line height for better readability */
+        }
+
+        /* Buttons in activities */
+        .about-card .buttons {
+            margin-top: 0.75rem;
+            /* Increased margin for better spacing */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            /* Increased gap for better spacing */
+        }
+
+        .about-card .buttons a {
+            font-size: 0.8rem;
+            /* Increased font size for better readability */
+            padding: 6px 12px;
+            /* Increased padding for a more modern button size */
+            background: var(--key-purple);
+            border-radius: 6px;
+            /* Adjusted border radius */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .about-card .buttons a:hover {
+            transform: translateY(-2px);
+            /* Increased hover effect */
+            box-shadow: 0 0 12px var(--glow-color);
+            /* Enhanced hover shadow */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .about-card {
+                width: 90%;
+                margin-top: 1.5rem;
+            }
+
+            .about-card .header {
+                gap: 0.5rem;
+            }
+
+            .about-card .avatar {
+                width: 56px;
+                /* Adjusted for smaller screens */
+                height: 56px;
+                /* Adjusted for smaller screens */
+            }
+
+            .about-card .activity img {
+                width: 40px;
+                /* Adjusted for smaller screens */
+                height: 40px;
+                /* Adjusted for smaller screens */
+            }
+        }
     </style>
+    <title>@bannisters</title>
 </head>
 
 <body>
-    <div id="overlay">
+
+    <a href="#" id="overlay" onclick="handleClick()">
         <div class="overlay-content">
             <div class="typing-text" id="typing-text"></div>
         </div>
-    </div>
+    </a>
+
+
 
     <div id="tsparticles"></div>
     <header>
         <h1>bannisters.cc</h1>
-				<footer>
-        <a href="https://instagram.com/bannisterss" target="_blank" class="social">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://github.com/n9vo" target="_blank" class="social">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://discord.gg/hakitok" target="_blank" class="social">
-            <i class="fab fa-discord"></i>
-        </a>
-    </footer>
+        <footer>
+            <a href="https://instagram.com/bannisterss" target="_blank" class="social">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/n9vo" target="_blank" class="social">
+                <i class="fab fa-github"></i>
+            </a>
+        </footer>
     </header>
 
-		 
+    <script>
+        async function fetchPresence() {
+            const res = await fetch("https://api.lanyard.rest/v1/users/827215467587436595");
+            const { data } = await res.json();
+            renderPresence(data);
+        }
+
+        function renderPresence(data) {
+            const card = document.getElementById("presence-card");
+            // Header
+            const header = document.createElement("div");
+            header.className = "header";
+            header.innerHTML = `
+            <div class="avatar" style="background-image:url('https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png?size=128')"></div>
+            <div class="user-info">
+              <h2>${data.discord_user.username}#${data.discord_user.discriminator}</h2>
+              <div class="status">${data.discord_status.replace("_", " ").toUpperCase()}</div>
+            </div>
+          `;
+            card.appendChild(header);
+
+            // Activities Header
+            const activitiesHeader = document.createElement("h3");
+            activitiesHeader.textContent = "Activity";
+            card.appendChild(activitiesHeader);
+
+            // Activities
+            if (data.activities && data.activities.length) {
+                const ul = document.createElement("ul");
+                ul.className = "activity-list";
+
+                data.activities.forEach(act => {
+                    const li = document.createElement("li");
+                    li.className = "activity";
+
+                    // Attempt to get an asset image
+                    let imgUrl = "";
+                    if (act.assets && act.assets.large_image) {
+                        imgUrl = `https://cdn.discordapp.com/app-assets/${act.application_id}/${act.assets.large_image}.png?size=64`;
+                    }
+
+                    // Determine activity type
+                    const activityType = act.type === 0 ? "Playing" : act.type === 1 ? "Streaming" : act.type === 2 ? "Listening" : "Watching";
+
+                    li.innerHTML = `
+                ${imgUrl ? `<img src="${imgUrl}" alt="" />` : ""}
+                <div class="details">
+                  <h3>${activityType} ${act.name}</h3>
+                  ${act.details ? `<p>${act.details}</p>` : ""}
+                  ${act.state ? `<p>${act.state}</p>` : ""}
+                  ${act.buttons ? `<div class="buttons">${act.buttons.map(btn => `<a href="#">${btn}</a>`).join("")}</div>` : ""}
+                </div>
+              `;
+                    ul.appendChild(li);
+                });
+
+                card.appendChild(ul);
+            }
+        }
+
+        fetchPresence().catch(console.error);
+    </script>
+
+    <div class="presence-cards-container" style="display: flex; justify-content: center; max-width: 1200px; margin: 0 auto;">
+        <div class="presence-card" id="presence-card" style="margin-right: 0px; max-width: 300px;"></div>
+        <div class="about-card" style="margin-left: 5px; max-width: 300px;">
+            <h2 style="font-family:'Poppins',sans-serif; font-weight:500; margin-bottom:0.5rem;">
+                About Me
+            </h2>
+            <p>I'm a 17 year old self-taught developer. I work with servers, games and cheats, kernel development, dns
+                management, AI and machine learning, IOT automations, Software Automations, and more.</p>
+        </div>
+
+        <div class="about-card" style="margin-left: 5px; max-width: 300px;">
+            <h2 style="font-family:'Poppins',sans-serif; font-weight:500; margin-bottom:0.5rem;">
+                Specifics
+            </h2>
+            <ul style="list-style:none; padding:0; margin:0; text-align:left; line-height:1.6;">
+                <li>• Python</li>
+                <li>• LuaU (roblox games + scripts)</li>
+                <li>• JavaScript/HTML/CSS</li>
+                <li>• C++ & Kernel Dev</li>
+                <li>• Node.js (not a language)</li>
+                <li>• Linux Systems</li>
+                <li>• Cheat Engine & Memory Manipulation</li>
+            </ul>
+        </div>
+    </div>
+
+
     <main>
-        
-        <div class="gallery js-flickity"
-	       data-flickity='{
+
+        <div class="gallery js-flickity" data-flickity='{
 	         "wrapAround": true,
 	         "pageDots": true,
 	         "prevNextButtons": true,
@@ -417,7 +839,8 @@
             </div>
             <div class="gallery-cell">
                 <a href="https://github.com/n9vo/external_ha_server" target="_blank" class="cell-content">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/robot.png" alt="Robot icon" class="key-icon" />
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/robot.png" alt="Robot icon"
+                        class="key-icon" />
                     <h2 class="text-xl font-bold mb-2">External Home Assistant Server</h2>
                     <p class="text-sm font-light">A minimal Flask gateway that securely proxies selected Home Assistant
                         endpoints on your own domain for real time control without exposing the full UI.
@@ -426,7 +849,8 @@
             </div>
             <div class="gallery-cell">
                 <a href="https://github.com/n9vo/Wordle-Assistant" target="_blank" class="cell-content">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/puzzle.png" alt="Puzzle icon" class="key-icon" />
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/puzzle.png" alt="Puzzle icon"
+                        class="key-icon" />
                     <h2 class="text-xl font-bold mb-2">Wordle Assistant</h2>
                     <p class="text-sm font-light">
                         Native JS logic to get the most likely answers for a wordle game. This JavaScript algorithm
@@ -436,7 +860,8 @@
             </div>
             <div class="gallery-cell">
                 <a href="https://github.com/n9vo/Survey-Engineer" target="_blank" class="cell-content">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/survey.png" alt="Survey icon" class="key-icon" />
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/survey.png" alt="Survey icon"
+                        class="key-icon" />
                     <h2 class="text-xl font-bold mb-2">Survey Engineer</h2>
                     <p class="text-sm font-light">
                         SurveyEngineer is a proof-of-concept open-source tool designed to create and edit surveys using
@@ -458,60 +883,7 @@
             </div>
         </div>
     </main>
-		<!-- Container for the three boxes -->
-<section id="profile-overview" style="
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 2rem auto;
-">
 
-  <!-- About Me box -->
-  <div class="info-box" style="
-    flex: 1 1 250px;
-    min-width: 220px;
-    padding: 1.5rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 1rem;
-    text-align: center;
-    color: rgba(255,255,255,0.8);
-    font-weight: 300;
-  ">
-    <h2 style="font-family:'Poppins',sans-serif; font-weight:500; margin-bottom:0.5rem;">
-      About Me
-    </h2>
-    <p>I'm a 17 year old self-taught developer. I work with servers, games and cheats, kernel development, dns management, AI and machine learning, IOT automations, Software Automations, and more.</p>
-  </div>
-
-  <!-- Languages & Technologies box -->
-  <div class="info-box" style="
-    flex: 1 1 250px;
-    min-width: 220px;
-    padding: 1.5rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 1rem;
-    text-align: center;
-    color: rgba(255,255,255,0.8);
-    font-weight: 300;
-  ">
-    <h2 style="font-family:'Poppins',sans-serif; font-weight:500; margin-bottom:0.5rem;">
-      Specifics
-    </h2>
-    <ul style="list-style:none; padding:0; margin:0; text-align:left; line-height:1.6;">
-      <li>• Python</li>
-      <li>• LuaU (roblox games + scripts)</li>
-      <li>• JavaScript/HTML/CSS</li>
-      <li>• C++ & Kernel Dev</li>
-      <li>• Node.js (not a language)</li>
-			<li>• Linux Systems</li>
-			<li>• Cheat Engine & Memory Manipulation</li>
-    </ul>
-  </div>
-
-
-</section>
 
     <script>
         window.onload = () => {
@@ -527,8 +899,8 @@
                     "defaultCursor": false,
                     "outerWidth": 30,
                     "outerHeight": 30,
-										"contain": true,
-  									"cellAlign": "center"
+                    "contain": true,
+                    "cellAlign": "center"
                 });
             }
         });
@@ -590,15 +962,21 @@
                 const typingElement = document.getElementById('typing-text');
                 const text = "bannisters.cc";
 
-                typewriterEffect(typingElement, text, () => {
-                    setTimeout(() => {
-                        fadeOutOverlay();
-                    }, 1000);
-                });
+                typewriterEffect(typingElement, text);
             }
         }
+        var animdone = false;
 
-        function typewriterEffect(element, text, callback) {
+        function handleClick() {
+            if (animdone == false) { return; }
+            var audio = new Audio('song.mp3');
+            audio.play();
+            fadeOutOverlay();
+        }
+
+
+
+        function typewriterEffect(element, text) {
             let index = 0;
 
             const type = () => {
@@ -607,7 +985,7 @@
                     index++;
                     setTimeout(type, 100);
                 } else {
-                    if (callback) setTimeout(callback, 500);
+                    animdone = true;
                 }
             };
 
@@ -615,6 +993,7 @@
         }
 
         function fadeOutOverlay() {
+
             const overlay = document.getElementById('overlay');
             overlay.style.opacity = '0';
 
@@ -622,6 +1001,43 @@
                 overlay.style.display = 'none';
             }, 1000);
         }
+
+        let titleIndex = 0;
+        let titleText = "@bannisters";
+        let isDeleting = false;
+
+        let lastTime = 0;
+        const typingDelay = 350;
+        const deletingDelay = 350;
+
+        function typeTitle(timestamp) {
+            const elapsed = timestamp - lastTime;
+            const delay = isDeleting ? deletingDelay : typingDelay;
+
+            if (elapsed >= delay) {
+                if (isDeleting) {
+                    titleIndex--;
+                    if (titleIndex < 0) {
+                        isDeleting = false;
+                        titleIndex = 0;
+                    }
+                } else {
+                    titleIndex++;
+                    if (titleIndex > titleText.length) {
+                        isDeleting = true;
+                        titleIndex = titleText.length;
+                    }
+                }
+
+                document.title = titleText.substring(0, titleIndex);
+                lastTime = timestamp;
+            }
+
+            requestAnimationFrame(typeTitle);
+        }
+
+        requestAnimationFrame(typeTitle);
+
     </script>
 
 
