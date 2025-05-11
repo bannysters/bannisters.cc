@@ -777,7 +777,6 @@
                   <h3>${activityType} ${act.name}</h3>
                   ${act.details ? `<p>${act.details}</p>` : ""}
                   ${act.state ? `<p>${act.state}</p>` : ""}
-                  ${act.buttons ? `<div class="buttons">${act.buttons.map(btn => `<a href="#">${btn}</a>`).join("")}</div>` : ""}
                 </div>
               `;
                     ul.appendChild(li);
@@ -966,9 +965,12 @@
             }
         }
         var animdone = false;
+        var clicked = false;
 
         function handleClick() {
             if (animdone == false) { return; }
+            if (clicked) { return; }
+            clicked = true;
             var audio = new Audio('song.mp3');
             audio.play();
             fadeOutOverlay();
