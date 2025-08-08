@@ -3,49 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>bannisters.cc</title>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const iframe = document.getElementById("mirror");
-      iframe.onload = () => {
-        try {
-          const iframeDoc = iframe.contentWindow.document;
-          const block = iframeDoc.createElement("script");
-          block.textContent = `
-            if(location.hostname.includes("guns.lol")) {
-              Object.defineProperty(window, "location", {
-                value: {
-                  assign: () => {},
-                  replace: () => {},
-                  reload: () => {},
-                  href: window.location.href
-                },
-                writable: false
-              });
-              console.log("Redirect blocked");
-            }
-          `;
-          iframeDoc.head.appendChild(block);
-        } catch (e) {
-          console.warn(e);
-        }
-      };
-    });
-  </script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-    }
-  </style>
 </head>
 <body>
-  <iframe id="mirror" src="./guns_local/guns.lol/bannisters.html"></iframe>
+  <iframe src="https://discord.com/widget?id=1386273683844370442&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </body>
 </html>
