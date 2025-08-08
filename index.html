@@ -2,9 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>bannisters.cc</title>
+  <title>BANNISTERS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at top, #0e0e0e, #000000 80%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Animated background glow */
+    body::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        #ff005e,
+        #6f00ff,
+        #00e1ff,
+        #00ff88,
+        #ff005e
+      );
+      animation: spin 20s linear infinite;
+      filter: blur(150px);
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Container */
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Logo/title */
+    .title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+
+    /* Discord widget styling */
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8),
+                  0 0 40px rgba(111, 0, 255, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    iframe:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9),
+                  0 0 50px rgba(111, 0, 255, 0.6);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .title {
+        font-size: 2rem;
+      }
+      iframe {
+        width: 90%;
+        height: 400px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <iframe src="https://discord.com/widget?id=1386273683844370442&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+  <div class="container">
+    <div class="title">BANNISTERS</div>
+    <div class="subtitle">Welcome to our official Discord server</div>
+
+    <iframe 
+      src="https://discord.com/widget?id=1386273683844370442&theme=dark"
+      width="350" height="500" allowtransparency="true" frameborder="0"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+    </iframe>
+
+    <div class="footer">© 2025 Bannisters. All rights reserved.</div>
+  </div>
+
 </body>
 </html>
