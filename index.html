@@ -1,168 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BANNISTERS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>BANNISTERS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* Reset & Base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #0a0a0a;
-      color: white;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #0a0a0a;
+  color: white;
+  overflow: hidden;
+}
 
-    section {
-      min-height: 100vh;
-      padding: 60px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+/* Particle Canvas */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
 
-    /* Fade-in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
-    }
+/* Custom Cursor */
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, background 0.2s;
+  z-index: 1000;
+}
+.cursor.hover {
+  transform: translate(-50%, -50%) scale(2);
+  background: rgba(255,255,255,0.2);
+}
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+/* Layout */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 40px;
+  position: relative;
+}
 
-    /* Title styling */
-    .title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      color: white;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    }
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.05);
+  animation: slideIn 1.2s ease forwards;
+  opacity: 0;
+}
 
-    .subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      opacity: 0.8;
-    }
+.glass-panel:nth-child(1) { animation-delay: 0.2s; }
+.glass-panel:nth-child(2) { animation-delay: 0.4s; }
+.glass-panel:nth-child(3) { animation-delay: 0.6s; }
 
-    /* Widget container */
-    iframe {
-      border-radius: 12px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+@keyframes slideIn {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-    iframe:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
-    }
+/* Title Styling */
+.title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
 
-    /* Join section */
-    .join-btn {
-      margin-top: 20px;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: black;
-      background: white;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-    }
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.8;
+}
 
-    .join-btn:hover {
-      background: #f5f5f5;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-      transform: scale(1.05);
-    }
+/* Widget Styling */
+iframe {
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+iframe:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
 
-    /* Section dividers */
-    .divider {
-      height: 1px;
-      width: 80%;
-      background: rgba(255, 255, 255, 0.1);
-      margin: 40px auto;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      opacity: 0.5;
-      background: #050505;
-    }
-
-    /* Responsive */
-    @media (max-width: 500px) {
-      .title {
-        font-size: 2rem;
-      }
-      iframe {
-        width: 90%;
-        height: 400px;
-      }
-    }
-  </style>
+/* Join Button */
+.join-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  background: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.join-btn:hover {
+  background: #f5f5f5;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+</style>
 </head>
 <body>
 
-  <!-- Hero / Main Widget Section -->
-  <section class="fade-in" style="animation-delay: 0.2s;">
-    <div class="title">BANNCORD</div>
-    <div class="subtitle">Your new place for hanging out, coding, and gaming.</div>
+<canvas id="particles"></canvas>
+<div class="cursor"></div>
 
+<div class="container">
+  <!-- About -->
+  <div class="glass-panel">
+    <div class="title">BANNCORD</div>
+    <div class="subtitle">Your hub for hanging out, coding, and gaming.</div>
+    <p style="margin-top:15px; max-width: 250px;">
+      BANNCORD was built to bring people together, share my work, and grow a thriving community.
+    </p>
+    <button class="join-btn" onclick="window.open('https://discord.gg/bannisters', '_blank')">Join Now</button>
+  </div>
+
+  <!-- Widget -->
+  <div class="glass-panel">
     <iframe 
       src="https://discord.com/widget?id=1386273683844370442&theme=dark"
       width="350" height="500" allowtransparency="true" frameborder="0"
       sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
     </iframe>
-  </section>
+  </div>
+</div>
 
-  <div class="divider"></div>
+<script>
+// Particle background
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-  <!-- About Section -->
-  <section class="fade-in" style="animation-delay: 0.4s;">
-    <div class="title">About</div>
-    <p class="subtitle" style="max-width: 600px; text-align: center;">
-      BANNCORD is a multipurpose server that I created with 3 ideas in mind: bring people together, spread my work, and build a thriving community.
-    </p>
-  </section>
+for(let i=0;i<80;i++){
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*2+1,
+    dx: (Math.random()-0.5)*0.5,
+    dy: (Math.random()-0.5)*0.5
+  });
+}
 
-  <div class="divider"></div>
+function drawParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "white";
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+    p.x += p.dx;
+    p.y += p.dy;
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
 
-  <!-- Join Section -->
-  <section class="fade-in" style="animation-delay: 0.6s;">
-    <div class="title">Join the Community</div>
-    <p class="subtitle">Click below to get started.</p>
-    <button class="join-btn" onclick="window.open('https://discord.gg/bannisters', '_blank')">Join Server</button>
-  </section>
-
-  <footer>
-    © 2025 BANNISTERS. All rights reserved.
-  </footer>
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', e=>{
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('button, iframe').forEach(el=>{
+  el.addEventListener('mouseenter', ()=>cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', ()=>cursor.classList.remove('hover'));
+});
+</script>
 
 </body>
 </html>
