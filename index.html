@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>bannisters.cc</title>
@@ -22,11 +23,34 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      box-shadow: inset -1px 0 0 rgba(255,255,255,0.1);
+      box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.1);
       animation: slideIn 0.8s ease forwards;
       overflow-y: auto;
       position: relative;
+
+      scrollbar-width: thin;
+      scrollbar-color: #3a3a3a #0a0a0a;
     }
+
+
+    .about-section::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .about-section::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    .about-section::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #3a3a3a, #1f1f1f);
+      border-radius: 10px;
+      border: 2px solid #0a0a0a;
+    }
+
+    .about-section::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #505050, #2a2a2a);
+    }
+
 
     .about-section::before {
       content: '';
@@ -35,7 +59,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: 
+      background:
         radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(75, 0, 130, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
@@ -66,12 +90,15 @@
         transform: translateY(100vh) translateX(0px);
         opacity: 0;
       }
+
       10% {
         opacity: 1;
       }
+
       90% {
         opacity: 1;
       }
+
       100% {
         transform: translateY(-10px) translateX(20px);
         opacity: 0;
@@ -85,8 +112,15 @@
     }
 
     @keyframes slideIn {
-      from { transform: translateX(-50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
     .about-section h1 {
@@ -106,6 +140,7 @@
       from {
         filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.3));
       }
+
       to {
         filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6));
       }
@@ -259,35 +294,40 @@
       min-width: 350px;
     }
 
-.widget-container {
-  width: calc(100% );
-  height: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column; 
-  gap: 15px; 
+    .widget-container {
+      width: calc(100%);
+      height: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
 
-  border-radius: 0px;
-}
+      border-radius: 0px;
+    }
 
-.widget-container iframe {
-  width: 100%;
-  flex: 1; 
-  border: none;
-  min-height: 500px;
-}
+    .widget-container iframe {
+      width: 100%;
+      flex: 1;
+      border: none;
+      min-height: 500px;
+    }
 
-.join-btn {
-  width: 100%; 
-  text-align: center;
-}
+    .join-btn {
+      width: 100%;
+      text-align: center;
+    }
 
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     @media (max-width: 1200px) {
@@ -295,7 +335,7 @@
         flex: 0 0 65%;
         padding: 40px;
       }
-      
+
       .widget-section {
         flex: 0 0 35%;
         min-width: 320px;
@@ -306,19 +346,19 @@
       body {
         flex-direction: column;
       }
-      
+
       .about-section {
         flex: 1;
         padding: 30px;
       }
-      
+
       .widget-section {
         flex: 0 0 400px;
         padding: 15px;
         min-width: unset;
         align-items: center;
       }
-      
+
       .widget-container {
         height: 350px;
         max-width: 100%;
@@ -333,15 +373,15 @@
       .about-section {
         padding: 20px;
       }
-      
+
       .about-section h1 {
         font-size: 2em;
       }
-      
+
       .widget-section {
         flex: 0 0 350px;
       }
-      
+
       .widget-container {
         height: 300px;
       }
@@ -349,7 +389,7 @@
       .widget-container iframe {
         min-height: 300px;
       }
-      
+
       .tech-stack img {
         margin: 2px;
         max-width: calc(50% - 4px);
@@ -357,58 +397,105 @@
     }
   </style>
 </head>
+
 <body>
-  <div id="sfc44mu7sgehbfw6z59atakh6jt3dsq431a"></div><script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=44mu7sgehbfw6z59atakh6jt3dsq431a&down=async" async></script><br><a href="https://www.freecounterstat.com">free hit counter code</a><noscript><a href="https://www.freecounterstat.com" title="free hit counter code"><img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=44mu7sgehbfw6z59atakh6jt3dsq431a" border="0" title="free hit counter code" alt="free hit counter code"></a></noscript>
+
+
   <div class="about-section">
     <div class="particles" id="particles"></div>
     <div class="content-wrapper">
       <h1>discord.gg/bannisters</h1>
+
       <p>
-        Hi, my name is bannisters. I'm a developer of 5+ years with experience from game cheats to full-stack web development and custom APIs. I founded Banncord as my own private hangout, a place to chill & share my knowledge, helping others learn to code in a friendly environment.
-        <br><br><strong>What does it have to offer?</strong><br> - Great hangout for friends<br> - Non toxic and private community <br> - I'll code your projects completely free of charge <br> - 1 on 1 Learning with me for FREE
-        
+        Hi, my name is bannisters. I'm a developer of 5+ years with experience from game cheats to full-stack web
+        development and custom APIs. I founded Banncord as my own private hangout, a place to chill & share my
+        knowledge, helping others learn to code in a friendly environment.
+        <br><br><strong>What does it have to offer?</strong><br> - Great hangout for friends<br> - Non toxic and private
+        community <br> - I'll code your projects completely free of charge <br> - 1 on 1 Learning with me for FREE
+
         <br><br>
-        
-        I built this server as a safe haven to learn, code, and hang out with friends. Whether you're a beginner coder or a casual gamer, you'll find banncord to be a great place for you. Even if you've never touched code in your life, dont worry! Banncord is still a great place to be, with lots of smart people, we promise to be a great community for whatever you're interested in.
-    
-        </p>
+
+        I built this server as a safe haven to learn, code, and hang out with friends. Whether you're a beginner coder
+        or a casual gamer, you'll find banncord to be a great place for you. Even if you've never touched code in your
+        life, dont worry! Banncord is still a great place to be, with lots of smart people, we promise to be a great
+        community for whatever you're interested in.
+
+      </p>
       <div class="tech-stack">
         <p><strong>Some stuff I've worked with..</strong></p>
         <div class="tech-badges">
-        <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
-        <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" alt="C">
-        <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
-        <img src="https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white" alt="Lua">
-        <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
-        <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white" alt="C#">
-        <img src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white" alt="Cloudflare">
-        <img src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase" alt="Firebase">
-        <img src="https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white" alt="Heroku">
-        <img src="https://img.shields.io/badge/ejs-%23B4CA65.svg?style=for-the-badge&logo=ejs&logoColor=black" alt="EJS">
-        <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
-        <img src="https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD" alt="Nodemon">
-        <img src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101" alt="Socket.io">
-        <img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
-        <img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx">
-        <img src="https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34" alt="Firebase (alternate)">
-        <img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white" alt="Canva">
-        <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
-        <img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black" alt="Matplotlib">
-        <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
-        <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git">
-        <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-        <img src="https://img.shields.io/badge/home%20assistant-%2341BDF5.svg?style=for-the-badge&logo=home-assistant&logoColor=white" alt="Home Assistant">
-        <img src="https://img.shields.io/badge/-Raspberry_Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi" alt="Raspberry Pi">
-        <img src="https://img.shields.io/badge/zigbee-%23EB0443.svg?style=for-the-badge&logo=zigbee&logoColor=white" alt="Zigbee">
+          <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
+            alt="Python">
+          <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" alt="C">
+          <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white"
+            alt="C++">
+          <img src="https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white"
+            alt="Lua">
+          <img
+            src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"
+            alt="JavaScript">
+          <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white"
+            alt="C#">
+          <img src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white"
+            alt="Cloudflare">
+          <img src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase"
+            alt="Firebase">
+          <img src="https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white"
+            alt="Heroku">
+          <img src="https://img.shields.io/badge/ejs-%23B4CA65.svg?style=for-the-badge&logo=ejs&logoColor=black"
+            alt="EJS">
+          <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"
+            alt="Node.js">
+          <img
+            src="https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD"
+            alt="Nodemon">
+          <img src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101"
+            alt="Socket.io">
+          <img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white"
+            alt="OpenCV">
+          <img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white"
+            alt="Nginx">
+          <img src="https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34"
+            alt="Firebase (alternate)">
+          <img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white"
+            alt="Canva">
+          <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white"
+            alt="NumPy">
+          <img
+            src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black"
+            alt="Matplotlib">
+          <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white"
+            alt="Pandas">
+          <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"
+            alt="Git">
+          <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
+            alt="GitHub">
+          <img
+            src="https://img.shields.io/badge/home%20assistant-%2341BDF5.svg?style=for-the-badge&logo=home-assistant&logoColor=white"
+            alt="Home Assistant">
+          <img src="https://img.shields.io/badge/-Raspberry_Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi"
+            alt="Raspberry Pi">
+          <img src="https://img.shields.io/badge/zigbee-%23EB0443.svg?style=for-the-badge&logo=zigbee&logoColor=white"
+            alt="Zigbee">
         </div>
 
       </div>
+
+      <p>
+        Visitor count:
+      </p>
+
+      <div id="sfctkr4jr3nkt765uel8p4jzlylwn6yfadm"></div>
+      <script type="text/javascript"
+        src="https://counter1.optistats.ovh/private/counter.js?c=tkr4jr3nkt765uel8p4jzlylwn6yfadm&down=async"
+        async></script>
     </div>
   </div>
 
 
   <div class="widget-container">
-    <iframe src="https://discord.com/widget?id=1386273683844370442&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <iframe src="https://discord.com/widget?id=1386273683844370442&theme=dark" allowtransparency="true"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   </div>
 
 
@@ -417,26 +504,27 @@
   function createParticles() {
     const particles = document.getElementById('particles');
     const particleCount = 50;
-    
+
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
       particle.style.left = Math.random() * 100 + '%';
       particle.style.animationDelay = Math.random() * 6 + 's';
       particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-      
+
       particle.style.opacity = Math.random() * 0.5 + 0.1;
       const size = Math.random() * 3 + 1;
       particle.style.width = size + 'px';
       particle.style.height = size + 'px';
-      
+
       const colors = ['rgba(138, 43, 226, 0.4)', 'rgba(75, 0, 130, 0.3)', 'rgba(255, 255, 255, 0.3)', 'rgba(200, 200, 200, 0.2)'];
       particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-      
+
       particles.appendChild(particle);
     }
   }
-  
+
   window.addEventListener('load', createParticles);
 </script>
+
 </html>
